@@ -33,12 +33,10 @@ sudo bash stop.sh
 
 ### Level 0
 The user has to execute the *start.sh* script. Then, they will have to do some reading to understand the basics about inodes.
-
 This level strictly sets the user and the computer up to be ready to attempt the challenge.
 
 ### Level 1
 A script is mysteriously found in the folder. It will be helpful all along the challenge if you want to visualize the state of a directory and its files and sub-directories in the filesystem.
-
 In this level, the user has to see the inode number of specific files and folders and give the correct number to a verification script. Simple stuff to get familiar with the concept.
 
 ### Level 2
