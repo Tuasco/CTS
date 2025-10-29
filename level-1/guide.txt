@@ -1,15 +1,15 @@
-Hello fellow explorer, I am clippy, happy to help.
-This challenge is about inode. Do you know what they really are ?
+Hello fellow explorer, I am Clippy, happy to help.
+This challenge is about inodes. Do you know what they really are ?
 Let me break it down for you :
 
 On each disk (flash drive, HDD, SSD, whatever), there are partitions.
 Each partition has one filesystem.
-A filesystem is a program made by people (with beards), it's just code.
+A filesystem is a program made by people (usually with beards), so it's just code.
 This code sets the logic of how a file is stored, read, modified, etc.
 Since files can be of different sizes, putting them on the disk in chain is not an option
-(Remember in ALG, we have the same problem for storing arrays and modifying them later).
+(Remember in ALG, we had the same problem when storing arrays and modifying them later).
 So people came up with a solution : file descriptors !
-These are chunks of fixed size that tell a bunch of information on a file :
+These are chunks of fixed size that give us a bunch of information on a file :
  - The file descriptor's ID
  - When it was created
  - Last modified
@@ -19,9 +19,9 @@ These are chunks of fixed size that tell a bunch of information on a file :
 
 So, we have a big array of fixed size elements
 Each element points to an object (could be a file, a folder, or other things).
-Those elements that we called file descriptors, are called inodes in Linux.
+Those elements that we called file descriptors, are actually called inodes in Linux.
 
-To see the contents of the inode of a file, directory or other
+To see the contents of the inode of a file, directory or other object
 Use the stat command : stat [file|folder]
 Example : stat ./ => see the inode of the directory you're currently in
 There you go ! You have all the tools for level 1

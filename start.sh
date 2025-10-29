@@ -116,4 +116,21 @@ echo "   WARNING: All actions are monitored"
 echo "================================================"
 EOF
 
+
+# Set all levels
+# This is improper code because it's ran by the verify.sh scripts in case something is broken, but it'll do fine for now
+echo "Cloning the project..."
+cd "$GAME_DIR/root"
+git clone https://github.com/Tuasco/CTS && cd ./CTS
+
+# Set level 1
+mkdir -p ./level-1/a-directory/another-directory
+echo "KABOOM !" > "$FILE_PATH"
+
+# Set level 2
+echo "This is the content of file 1" > ./level-2/file-1.txt
+ln ./level-2/file-1.txt ./level-2/file-2.txt
+
+
+# Enter the jail (Here we go !)
 chroot "$GAME_DIR" /bin/bash -c "[ -d /home/$(logname) ] && cd /home/$(logname); exec bash"

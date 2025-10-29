@@ -1,0 +1,32 @@
+Hi again ! You passed level 1. Level 2 is just as easy, but first, knowledge !
+Remember them inodes ? Well a single one can point to multiple files.
+The effect it has is fascinating : all the files it points to are now linked.
+This means that if you modify a file, all the other files get modified as well to have the same content.
+This behaviour is similar to a copy, but it's stronger. It's called a hard link.
+If you want to know a bit more, read the following section (which is not mandatory btw):
+
+========================
+When you copy a file, you create a new inode, that points to a new file.
+Then, the content of the first file is written to the second file.
+
+When you move a file, it keeps the same inode, but the file just changes name (and location).
+
+When you hard link a file, a new file is created, but it inherits the same inode as the first file.
+
+Under linux, when you open a file, the OS just has a pointer to the inode of said file.
+If two files have the same inode, then opening one has exactly the same effect as opening the other.
+This applies to reading, writing, modifying and every other operation on files.
+This is why the files are "hard linked".
+
+Small tip: When using the cp (copy), mv (move) or ln (link) command, it always hase the following syntax:
+(cp|mv|ln) [source_file] [destination_file]
+For example, cp a.txt b.txt copies the content of a.txt (source) into a new file called b.txt (destination)
+Similarly, ln a.txt b.txt links to a.txt (source) a new file called b.txt (destination)
+========================
+
+To sum up, if you want to duplicate a file, you copy it, which makes them independent after that point.
+If you want to create a shortcut to a file like on Windows, a hard link is one possible solution.
+
+To pass this level, you need to replace the content on the second file with the following sentence:
+This is the content of file 2
+You need to do this without modifying the first file.

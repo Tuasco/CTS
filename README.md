@@ -60,3 +60,7 @@ To pass this level, the user has to notice that the root directory's hardlink co
 But hang on a second !
 
 We can't shutdown, the root inode number isn't 2, we have one more link to it that what we can count, someone said we're in prison. That's right ! A chroot jail ! But what about that python script ? The user wins if he can use the script to break out of the jail and shutdown his PC.
+
+## Bypass a level
+If you choose not to pass a level the regular way, you can always bypass it (cheater).
+You need to write *1* in a file named `.PASS` in the same directory as the level you chose to override.
