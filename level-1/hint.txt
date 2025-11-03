@@ -1,0 +1,11 @@
+Here are a bunch of commands you could use to shutdown your system:
+- shutdown now
+- poweroff
+- halt
+- reboot
+- systemctl poweroff
+- systemctl reboot
+- systemctl halt
+- init 0
+- init 6
+At least one of them should work right ?

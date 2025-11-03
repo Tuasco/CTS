@@ -1,0 +1,13 @@
+Hey, you made it to level 4! You've learned about inodes, hard links, and symlinks.
+But remember that note from level 3 that said you were imprisoned? It was telling the truth.
+You are in what is known as a chroot jail.
+This is a mechanism that changes the root directory of a process to a different location in the filesystem.
+It's like being locked in a room and thinking it's the whole house. 
+his is why you haven't been able to shut down the system; the necessary commands are outside your "jail".
+But look, someone left behind a Python script. How convenient!
+This script is the key to your escape. It's designed to break out of the chroot environment.
+
+To pass this final level and win the game, you must:
+Understand and use the Python script to break out of the chroot jail.
+Once you have escaped, execute the command to shut down the computer.
+This is the final challenge. Good luck, explorer.

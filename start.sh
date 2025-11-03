@@ -1,16 +1,20 @@
 #!/usr/bin/env bash
-
 set -e
 
 GAME_DIR="/mnt/capture-the-shutdown"
 
 # Ensure run as root
 if [ "$EUID" -ne 0 ]; then 
-    echo "ERROR: This script must be run as root"
-    exit 1
+  echo "ERROR: This script must be run as root"
+  exit 1
 fi
 
 echo "Initialising game in $GAME_DIR..."
+
+if [ ! "$(git -v)" ]; then
+  echo "You need to have git installed to run this game"
+  exit 2
+fi
 
 # Create minimal directory structure
 echo "Setting up directory structure..."
@@ -91,13 +95,13 @@ alias halt='echo "ERROR: Insufficient privileges for halt operation" && echo "Co
 alias systemctl='_systemctl_wrapper'
 
 _systemctl_wrapper() {
-    if [[ "$1" == "reboot" || "$1" == "poweroff" || "$1" == "halt" || "$1" == "suspend" ]]; then
-        echo "ERROR: System power management disabled"
-        echo "Security policy prevents this operation"
-        return 1
-    else
-        command systemctl "$@"
-    fi
+  if [[ "$1" == "reboot" || "$1" == "poweroff" || "$1" == "halt" || "$1" == "suspend" ]]; then
+    echo "ERROR: System power management disabled"
+    echo "Security policy prevents this operation"
+    return 1
+  else
+    command systemctl "$@"
+  fi
 }
 
 # Block init commands
