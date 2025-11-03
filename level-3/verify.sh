@@ -36,15 +36,5 @@ if [ ! -h "$LINK2_PATH" ] || [ "$(readlink -f "$LINK2_PATH")" != "$SCRIPT_PATH" 
   exit 2
 fi
 
-echo "Okay good job ! If you have a btrfs file system or if you are on the Live CD, please skip level 4."
+echo "Okay good job !"
 echo "1" > "$LEVEL_PATH/.PASS"
-
-# Ask to automatically skip level 4
-echo "Do you want me to skip it for you? (y/N)"
-read -r confirm
-if [[ $confirm =~ ^[Yy]$ ]]; then
-    echo "Skipping..."
-    echo "1" > "$LEVEL_PATH/../level-4/.PASS"
-else
-    echo "Alright then, go for it champ !"
-fi
