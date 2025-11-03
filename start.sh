@@ -131,6 +131,13 @@ echo "KABOOM !" > "$FILE_PATH"
 echo "This is the content of file 1" > ./level-2/file-1.txt
 ln ./level-2/file-1.txt ./level-2/file-2.txt
 
+# Set level 3
+mkdir -p ./level-3/bin
+mkdir -p ./level-3/usr/bin
+mkdir -p ./level-3/usr/local/bin
+echo -e "#!/usr/bin/env bash\n\nwhoami" > ./level-3/usr/local/bin/whoami.sh
+chmod a+x ./level-3/usr/local/bin/whoami.sh
+
 
 # Enter the jail (Here we go !)
 chroot "$GAME_DIR" /bin/bash -c "[ -d /home/$(logname) ] && cd /home/$(logname); exec bash"

@@ -1,0 +1,1 @@
+Check the inode number of your root directory "/". It should be a power of 2 right ?

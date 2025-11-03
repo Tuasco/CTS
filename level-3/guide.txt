@@ -1,0 +1,22 @@
+Since inodes are specific to one filesystem (meaning one partition),
+You can't create a hardlink that point to a file on another drive.
+Symlinks (or symbolic links) overcome this limitation.
+Instead of creating anew file and attach it to the inode,
+You actually create a new special inode (of type symbolic link)
+That contains a link (/dir1/dir2/file.smth) to the file you want.
+This very much works like a shortcut and is widely adopted over hardlinks.
+Since a new inode is created, you will find a different inode number.
+
+To pass this level, you need to create a couple of symlinks:
+There is a script in level-3/usr/local/bin
+You need to create a link with the same name in level-3/usr/bin
+And another one in level-3/bin
+
+In a regular Linux filesystem, /usr/bin is used to store binaries (programs)
+For historical reasons, people want them to also be in /bin
+To avoid duplicating them, the whole /bin dir is a symlink to /usr/bin
+Sometimes, you want to execute a custom script you make
+A good practice is to put it in /usr/local/bin (or /usr/local/share/bin)
+To make it available system-wide (not have to type ./[path-to-script])
+You can add /usr/local/bin to your PATH variable,
+Or you can create a "shortcut" (a symlink) to it in /usr/bin or /bin

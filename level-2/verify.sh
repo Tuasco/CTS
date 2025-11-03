@@ -11,14 +11,14 @@ if [ ! -f "$LEVEL_PATH/../level-1/.PASS" ] || [ "$(cat "$LEVEL_PATH/../level-1/.
   exit 2
 fi
 
-# Check that file-1 exist
+# Check that file-1 exists
 if [ ! -f "$FILE1_PATH" ]; then
   >&2 echo "Have you deleted one of the files ? YOU BROKE THE GAME ! I'll fix it for ya..."
   echo "This is the content of file 1" > "$FILE1_PATH"
   exit 2
 fi
 
-# Check that file-1 exist
+# Check that file-1 exists
 if [ ! -f "$FILE2_PATH" ]; then
   >&2 echo "You have removed file 2. You're on track !"
   exit 2
