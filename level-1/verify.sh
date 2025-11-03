@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 
 LEVEL_PATH="$(dirname "$(readlink -f -- "$0")")"
@@ -12,9 +13,16 @@ if [ ! -f "$FILE_PATH" ]; then
   exit 2
 fi
 
- # Check that the inode number is correct
 read -rp "Alright, so give me the inode number: " inode
-if [[ $(stat --format="%i" "$FILE_PATH") -ne inode ]]; then
+
+# Validate that the input is an integer.
+if ! [[ "$inode" =~ ^[0-9]+$ ]]; then
+    >&2 echo "Your input is not a valid number."
+    exit 2
+fi
+
+# Check that the inode number is correct
+if [[ "$(stat --format="%i" "$FILE_PATH")" -ne "$inode" ]]; then
   >&2 echo "Nope ! Try again."
   exit 2
 fi
