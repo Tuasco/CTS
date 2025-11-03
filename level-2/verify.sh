@@ -18,7 +18,7 @@ if [ ! -f "$FILE1_PATH" ]; then
   exit 2
 fi
 
-# Check that file-1 exists
+# Check that file-2 exists
 if [ ! -f "$FILE2_PATH" ]; then
   >&2 echo "You have removed file 2. You're on track !"
   exit 2
@@ -31,7 +31,7 @@ if [ "$(cat "$FILE1_PATH")" != "This is the content of file 1" ]; then
 fi
 
 # Check that the content file-2.txt is modified to the expected result
-if [ "$(cat "$FILE1_PATH")" != "This is the content of file 2" ]; then
+if [ "$(cat "$FILE2_PATH")" != "This is the content of file 2" ]; then
   >&2 echo "I don't know what you've been doing, but this doesn't cut it. Try again !"
   exit 2
 fi

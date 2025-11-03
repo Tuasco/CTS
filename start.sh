@@ -126,10 +126,11 @@ EOF
 echo "Cloning the project..."
 cd "$GAME_DIR/root"
 git clone https://github.com/Tuasco/CTS && cd ./CTS
+rm start.sh stop.sh
 
 # Set level 1
 mkdir -p ./level-1/a-directory/another-directory
-echo "KABOOM !" > "$FILE_PATH"
+echo "KABOOM !" > ./level-1/a-directory/another-directory/a-file
 
 # Set level 2
 echo "This is the content of file 1" > ./level-2/file-1.txt
@@ -144,4 +145,4 @@ chmod a+x ./level-3/usr/local/bin/whoami.sh
 
 
 # Enter the jail (Here we go !)
-chroot "$GAME_DIR" /bin/bash -c "[ -d /home/$(logname) ] && cd /home/$(logname); exec bash"
+/usr/sbin/chroot "$GAME_DIR" /bin/bash -c "cd /root/CTS; exec bash"
